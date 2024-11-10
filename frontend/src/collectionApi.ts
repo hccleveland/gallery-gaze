@@ -1,35 +1,37 @@
-interface Departments {
+interface Department {
     departmentId: number;
     displayName: string;
 }
 
-interface ResponseDepartments {
-    departments: Departments[];
-}
-
-export async function getDepartments(): Promise<Departments[]> {
+export async function getDepartments(): Promise<Department[]> {
     const response = await fetch(
         "https://collectionapi.metmuseum.org/public/collection/v1/departments"
     );
-    const resData = (await response.json()) as ResponseDepartments;
+    const resData = (await response.json()) as { departments: Department[] };
     if (!response.ok) {
         throw new Error("Failed to fetch departments data.");
     }
     return resData.departments;
 }
 
-interface ResponseObjects {
+interface Collection {
     total: number;
     objectIDs: number[];
 }
 
-export async function getObjects(paramObj?: {
+export async function getCollection(paramObj?: {
     metadataDate?: string;
     departmentId?: string;
-}): Promise<number[]> {
+}): Promise<Collection> {
     let urlString =
         "https://collectionapi.metmuseum.org/public/collection/v1/objects";
     if (paramObj !== undefined) {
+        if (
+            paramObj.metadataDate !== undefined &&
+            paramObj.departmentId !== undefined
+        ) {
+            urlString = `${urlString}?metadataDate=${paramObj.metadataDate}&departmentIDs=${paramObj.departmentId}`;
+        }
         if (paramObj.metadataDate !== undefined) {
             urlString = `${urlString}?metadataDate=${paramObj.metadataDate}`;
         }
@@ -38,14 +40,14 @@ export async function getObjects(paramObj?: {
         }
     }
     const response = await fetch(urlString);
-    const resData = (await response.json()) as ResponseObjects;
+    const resData = (await response.json()) as Collection;
     if (!response.ok) {
-        throw new Error("Failed to fetch objects data.");
+        throw new Error("Failed to fetch collection data.");
     }
-    return resData.objectIDs;
+    return resData;
 }
 
-export interface ResponseObject {
+interface Object {
     objectID: number;
     isHighlight: boolean;
     accessionNumber: string;
@@ -121,13 +123,13 @@ export interface ResponseObject {
     GalleryNumber: string;
 }
 
-export async function getObject(objectId: number): Promise<ResponseObject> {
+export async function getObject(objectId: number): Promise<Object> {
     const urlString = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectId.toString()}`;
 
     const response = await fetch(urlString);
-    const resData = (await response.json()) as ResponseObject;
+    const resData = (await response.json()) as Object;
     if (!response.ok) {
-        throw new Error("Failed to fetch object.");
+        throw new Error("Failed to fetch object data.");
     }
     return resData;
 }
