@@ -14,7 +14,7 @@ export async function getDepartments(): Promise<Department[]> {
     return resData.departments;
 }
 
-interface Collection {
+export interface Collection {
     total: number;
     objectIDs: number[];
 }
