@@ -47,7 +47,7 @@ export async function getCollection(paramObj?: {
     return resData;
 }
 
-interface Object {
+export interface Object {
     objectID: number;
     isHighlight: boolean;
     accessionNumber: string;
