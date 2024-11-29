@@ -1,4 +1,4 @@
-interface Department {
+export interface Department {
     departmentId: number;
     displayName: string;
 }
