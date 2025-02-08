@@ -1,0 +1,96 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f1f0e8;
+}
+
+/* Navbar Component Styling */
+nav {
+    background-color: #e5e1da;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5% 0 5%;
+    white-space: nowrap;
+    width: 90%;
+}
+
+.navbar-brand {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: #28282B;
+    cursor: pointer;
+    font: italic 600 2rem "Playfair+Display";
+    outline: none;
+    padding: 0 0.5em;
+    position: relative;
+}
+
+/* ----- Navbar Brand Hover Effect ----- */
+.hover-underline::before {
+    background-color: #28282B;
+    bottom: 10px;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-out;
+    width: 100%;
+}
+
+.hover-underline:hover::before {
+    transform: scaleX(1);
+}
+/* ----- End Navbar Brand Hover Effect ----- */
+
+.navbar-collections {
+    color: #28282B;
+    display: flex;
+    font-family: "Bitter";
+    min-width: 45%;
+    position: relative;
+}
+
+/* Fetch Status + Error Notification */
+.navbar-collections > p {
+    font-size: 1.75rem;
+}
+
+.navbar-collections-header {
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 0.5em;
+    position: relative;
+}
+
+.navbar-collections-menu {
+    background-color: #e5e1da;
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.navbar-collections-dropdown:hover .navbar-collections-menu { 
+    display: block; 
+}
+
+.navbar-collections-menu button {
+    background: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    font: 1.5em "Bitter";
+    outline: none;
+    padding: 8px 0.75em;
+}
+
+.navbar-collections-menu li:hover {
+    background-color: #B3C8CF;
+}
