@@ -12,9 +12,10 @@ body {
 nav {
     background-color: #e5e1da;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 0 5% 0 5%;
-    white-space: nowrap;
+    padding: 0 5%;
+    white-space: wrap;
     width: 90%;
 }
 
@@ -26,8 +27,9 @@ nav {
     cursor: pointer;
     font: italic 600 2rem "Playfair+Display";
     outline: none;
-    padding: 0 0.5em;
+    padding: 0.5em 0.25em;
     position: relative;
+    width: fit-content;
 }
 
 /* ----- Navbar Brand Hover Effect ----- */
@@ -74,6 +76,7 @@ nav {
     display: none;
     list-style-type: none;
     position: absolute;
+    width: 100%;
     z-index: 1;
 }
 
@@ -89,8 +92,16 @@ nav {
     font: 1.5em "Bitter";
     outline: none;
     padding: 8px 0.75em;
+    text-align: start;
 }
 
 .navbar-collections-menu li:hover {
     background-color: #B3C8CF;
+}
+
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row;
+        white-space: nowrap;
+    }
 }
