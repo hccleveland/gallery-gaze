@@ -58,7 +58,10 @@ export default function Navbar() {
     };
 
     const handleDepartmentsReset = () => {
-        const sortedDepartments = [...departmentsData].sort(
+        const fetchedDepartments = [...departmentsData].filter(
+            (department) => department.displayName !== "Choose a Collection"
+        );
+        const sortedDepartments = fetchedDepartments.sort(
             (a, b) => a.departmentId - b.departmentId
         );
         setDepartmentsData([...initialDepartmentsData, ...sortedDepartments]);
