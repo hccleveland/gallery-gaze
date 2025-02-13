@@ -58,7 +58,10 @@ export default function Navbar() {
     };
 
     const handleDepartmentsReset = () => {
-        const sortedDepartments = [...departmentsData].sort(
+        const fetchedDepartments = [...departmentsData].filter(
+            (department) => department.displayName !== "Choose a Collection"
+        );
+        const sortedDepartments = fetchedDepartments.sort(
             (a, b) => a.departmentId - b.departmentId
         );
         setDepartmentsData([...initialDepartmentsData, ...sortedDepartments]);
@@ -66,20 +69,25 @@ export default function Navbar() {
 
     return (
         <nav>
-            <h1 onClick={handleDepartmentsReset}>Gallery Gaze</h1>
-            <div>
+            <button
+                className="navbar-brand hover-underline"
+                onClick={handleDepartmentsReset}
+            >
+                Gallery Gaze
+            </button>
+            <div className="navbar-collections">
                 {isFetching && <p>Loading collections...</p>}
                 {errorMsg && (
                     <p>Couldn't load collections, please try again.</p>
                 )}
                 {!isFetching && !errorMsg && (
-                    <ul>
-                        {departmentsData.map((department) => (
-                            <li key={department.departmentId}>
-                                {departmentsData[0].departmentId ===
-                                department.departmentId ? (
-                                    <p>{department.displayName}</p>
-                                ) : (
+                    <div className="navbar-collections-dropdown">
+                        <h2 className="navbar-collections-header">
+                            {departmentsData[0].displayName}
+                        </h2>
+                        <ul className="navbar-collections-menu">
+                            {departmentsData.slice(1).map((department) => (
+                                <li key={department.departmentId}>
                                     <button
                                         onClick={() => {
                                             handleDepartmentSelection(
@@ -89,10 +97,10 @@ export default function Navbar() {
                                     >
                                         {department.displayName}
                                     </button>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 )}
             </div>
         </nav>
