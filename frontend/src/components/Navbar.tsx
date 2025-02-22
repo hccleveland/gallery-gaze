@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Department, getDepartments } from "../collectionApi";
+import type { RootState } from "../store/index";
+import { useSelector } from "react-redux";
 
 const initialDepartmentsData: Department[] = [
     { departmentId: 0, displayName: "Choose a Collection" },
@@ -11,6 +13,8 @@ export default function Navbar() {
     const [departmentsData, setDepartmentsData] = useState(
         initialDepartmentsData
     );
+    const collection = useSelector((state: RootState) => state.collection);
+    const collectionTotalText = collection.total.toString();
 
     useEffect(() => {
         async function fetchDepartmentsData() {
@@ -83,7 +87,7 @@ export default function Navbar() {
                 {!isFetching && !errorMsg && (
                     <div className="navbar-collections-dropdown">
                         <h2 className="navbar-collections-header">
-                            {departmentsData[0].displayName}
+                            {`${departmentsData[0].displayName} - ${collectionTotalText}`}
                         </h2>
                         <ul className="navbar-collections-menu">
                             {departmentsData.slice(1).map((department) => (
