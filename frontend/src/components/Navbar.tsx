@@ -17,7 +17,6 @@ export default function Navbar() {
 
     const dispatch = useAppDispatch();
     const collection = useAppSelector((state) => state.collection);
-    const collectionTotalText = collection.total.toLocaleString();
 
     useEffect(() => {
         async function fetchDepartmentsData() {
@@ -100,7 +99,7 @@ export default function Navbar() {
                 {!isFetching && !errorMsg && (
                     <div className="navbar-collections-dropdown">
                         <h2 className="navbar-collections-header">
-                            {`${departmentsData[0].displayName} - ${collectionTotalText}`}
+                            {departmentsData[0].displayName}
                         </h2>
                         <ul className="navbar-collections-menu">
                             {departmentsData.slice(1).map((department) => (
