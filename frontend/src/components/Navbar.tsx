@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Department, getDepartments } from "../collectionApi";
-import type { RootState } from "../store/index";
-import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../store/typedHooks";
+import { fetchCollectionFromDepartmentID } from "../store/collection-slice";
+import { collectionActions } from "../store/collection-slice";
 
 const initialDepartmentsData: Department[] = [
     { departmentId: 0, displayName: "Choose a Collection" },
@@ -13,8 +14,10 @@ export default function Navbar() {
     const [departmentsData, setDepartmentsData] = useState(
         initialDepartmentsData
     );
-    const collection = useSelector((state: RootState) => state.collection);
-    const collectionTotalText = collection.total.toString();
+
+    const dispatch = useAppDispatch();
+    const collection = useAppSelector((state) => state.collection);
+    const collectionTotalText = collection.total.toLocaleString();
 
     useEffect(() => {
         async function fetchDepartmentsData() {
@@ -42,6 +45,14 @@ export default function Navbar() {
     }, []);
 
     const handleDepartmentSelection = (departId: number) => {
+        const departIDString = departId.toString();
+        const fetchCollectionParam = { departmentId: departIDString };
+        if (collection.status === "idle" || collection.status === "succeeded") {
+            void dispatch(
+                fetchCollectionFromDepartmentID(fetchCollectionParam)
+            );
+        }
+
         const selectedDepartment = departmentsData.find(
             (depart) => depart.departmentId === departId
         );
@@ -62,6 +73,8 @@ export default function Navbar() {
     };
 
     const handleDepartmentsReset = () => {
+        dispatch(collectionActions.resetCollection());
+
         const fetchedDepartments = [...departmentsData].filter(
             (department) => department.displayName !== "Choose a Collection"
         );
