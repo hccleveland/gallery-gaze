@@ -31,6 +31,18 @@ export const collectionSlice = createSlice({
         resetCollection() {
             return initialState;
         },
+        moveNextIndex(state) {
+            state.currentIndex =
+                state.currentIndex === state.objectIDs.length - 1
+                    ? 0
+                    : state.currentIndex + 1;
+        },
+        movePrevIndex(state) {
+            state.currentIndex =
+                state.currentIndex === 0
+                    ? state.objectIDs.length - 1
+                    : state.currentIndex - 1;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCollectionFromDepartmentID.pending, (state) => {

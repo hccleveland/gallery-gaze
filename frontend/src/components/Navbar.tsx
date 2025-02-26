@@ -3,6 +3,7 @@ import { Department, getDepartments } from "../collectionApi";
 import { useAppDispatch, useAppSelector } from "../store/typedHooks";
 import { fetchCollectionFromDepartmentID } from "../store/collectionSlice";
 import { collectionActions } from "../store/collectionSlice";
+import { objectActions } from "../store/objectSlice";
 
 const initialDepartmentsData: Department[] = [
     { departmentId: 0, displayName: "Choose a Collection" },
@@ -73,6 +74,7 @@ export default function Navbar() {
 
     const handleDepartmentsReset = () => {
         dispatch(collectionActions.resetCollection());
+        dispatch(objectActions.resetObject());
 
         const fetchedDepartments = [...departmentsData].filter(
             (department) => department.displayName !== "Choose a Collection"

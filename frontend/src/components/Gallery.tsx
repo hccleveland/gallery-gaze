@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/typedHooks";
 import { fetchObjectFromCollection } from "../store/objectSlice";
+import { collectionActions } from "../store/collectionSlice";
 
 export default function Gallery() {
     const dispatch = useAppDispatch();
     const collection = useAppSelector((state) => state.collection);
-    const objectStore = useAppSelector((state) => state.object);
-
     const collectionTotalText = collection.total.toLocaleString();
     const collectionCurrentText = (
         collection.currentIndex + 1
@@ -22,11 +21,34 @@ export default function Gallery() {
         }
     }, [collection.objectIDs, collection.currentIndex, dispatch]);
 
-    console.log(collection, objectStore);
+    const handleForwardClick = () => {
+        if (collection.objectIDs.length > 0) {
+            dispatch(collectionActions.moveNextIndex());
+        }
+    };
+
+    const handleBackwardsClick = () => {
+        if (collection.objectIDs.length > 0) {
+            dispatch(collectionActions.movePrevIndex());
+        }
+    };
 
     return (
-        <div>
-            <h3>{`${collectionCurrentText} - ${collectionTotalText}`}</h3>
-        </div>
+        <>
+            <div>
+                {collection.objectIDs.length > 0 && (
+                    <h3>{`${collectionCurrentText} - ${collectionTotalText}`}</h3>
+                )}
+            </div>
+            <div>
+                {collection.objectIDs.length > 0 && (
+                    <button onClick={handleBackwardsClick}>{"<"}</button>
+                )}
+                <div></div>
+                {collection.objectIDs.length > 0 && (
+                    <button onClick={handleForwardClick}>{">"}</button>
+                )}
+            </div>
+        </>
     );
 }
