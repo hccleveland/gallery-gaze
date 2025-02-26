@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Department, getDepartments } from "../collectionApi";
 import { useAppDispatch, useAppSelector } from "../store/typedHooks";
-import { fetchCollectionFromDepartmentID } from "../store/collection-slice";
-import { collectionActions } from "../store/collection-slice";
+import { fetchCollectionFromDepartmentID } from "../store/collectionSlice";
+import { collectionActions } from "../store/collectionSlice";
+import { objectActions } from "../store/objectSlice";
 
 const initialDepartmentsData: Department[] = [
     { departmentId: 0, displayName: "Choose a Collection" },
@@ -17,7 +18,6 @@ export default function Navbar() {
 
     const dispatch = useAppDispatch();
     const collection = useAppSelector((state) => state.collection);
-    const collectionTotalText = collection.total.toLocaleString();
 
     useEffect(() => {
         async function fetchDepartmentsData() {
@@ -74,6 +74,7 @@ export default function Navbar() {
 
     const handleDepartmentsReset = () => {
         dispatch(collectionActions.resetCollection());
+        dispatch(objectActions.resetObject());
 
         const fetchedDepartments = [...departmentsData].filter(
             (department) => department.displayName !== "Choose a Collection"
@@ -100,7 +101,7 @@ export default function Navbar() {
                 {!isFetching && !errorMsg && (
                     <div className="navbar-collections-dropdown">
                         <h2 className="navbar-collections-header">
-                            {`${departmentsData[0].displayName} - ${collectionTotalText}`}
+                            {departmentsData[0].displayName}
                         </h2>
                         <ul className="navbar-collections-menu">
                             {departmentsData.slice(1).map((department) => (

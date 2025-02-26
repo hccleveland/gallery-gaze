@@ -20,7 +20,7 @@ const initialState: CollectionState = {
 export const fetchCollectionFromDepartmentID = createAsyncThunk(
     "collection/fetchCollection",
     async (paramObj: { metadataDate?: string; departmentId?: string }) => {
-        return getCollection(paramObj);
+        return await getCollection(paramObj);
     }
 );
 
@@ -30,6 +30,18 @@ export const collectionSlice = createSlice({
     reducers: {
         resetCollection() {
             return initialState;
+        },
+        moveNextIndex(state) {
+            state.currentIndex =
+                state.currentIndex === state.objectIDs.length - 1
+                    ? 0
+                    : state.currentIndex + 1;
+        },
+        movePrevIndex(state) {
+            state.currentIndex =
+                state.currentIndex === 0
+                    ? state.objectIDs.length - 1
+                    : state.currentIndex - 1;
         },
     },
     extraReducers: (builder) => {
