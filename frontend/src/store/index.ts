@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import collectionReducer from "./collection-slice";
+import collectionReducer from "./collectionSlice";
+import objectReducer from "./objectSlice";
 
 export const store = configureStore({
     reducer: {
         collection: collectionReducer,
+        object: objectReducer,
     },
 });
 

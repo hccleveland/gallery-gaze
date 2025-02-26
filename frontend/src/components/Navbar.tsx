@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Department, getDepartments } from "../collectionApi";
 import { useAppDispatch, useAppSelector } from "../store/typedHooks";
-import { fetchCollectionFromDepartmentID } from "../store/collection-slice";
-import { collectionActions } from "../store/collection-slice";
+import { fetchCollectionFromDepartmentID } from "../store/collectionSlice";
+import { collectionActions } from "../store/collectionSlice";
 
 const initialDepartmentsData: Department[] = [
     { departmentId: 0, displayName: "Choose a Collection" },

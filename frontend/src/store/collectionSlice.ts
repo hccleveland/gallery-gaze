@@ -20,7 +20,7 @@ const initialState: CollectionState = {
 export const fetchCollectionFromDepartmentID = createAsyncThunk(
     "collection/fetchCollection",
     async (paramObj: { metadataDate?: string; departmentId?: string }) => {
-        return getCollection(paramObj);
+        return await getCollection(paramObj);
     }
 );
 
