@@ -4,8 +4,23 @@
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #f1f0e8;
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    flex: 1 1 100%;
 }
 
 /* Navbar Component Styling */
@@ -25,9 +40,9 @@ nav {
     box-shadow: none;
     color: #28282B;
     cursor: pointer;
-    font: italic 600 2rem "Playfair+Display";
+    font: italic 500 1.25rem "Playfair+Display";
     outline: none;
-    padding: 0.5em 0.25em;
+    padding: 0.3rem;
     position: relative;
     width: fit-content;
 }
@@ -35,9 +50,9 @@ nav {
 /* ----- Navbar Brand Hover Effect ----- */
 .hover-underline::before {
     background-color: #28282B;
-    bottom: 10px;
+    bottom: 3px;
     content: '';
-    height: 2px;
+    height: 1px;
     left: 0;
     position: absolute;
     transform: scaleX(0);
@@ -55,8 +70,8 @@ nav {
     color: #28282B;
     display: flex;
     font-family: "Bitter";
-    min-width: 45%;
     position: relative;
+    width: 100%;
 }
 
 /* Fetch Status + Error Notification */
@@ -65,9 +80,9 @@ nav {
 }
 
 .navbar-collections-header {
-    font-size: 2rem;
-    font-weight: 400;
-    padding: 0.5em;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.3rem;
     position: relative;
 }
 
@@ -84,24 +99,125 @@ nav {
     display: block; 
 }
 
+.navbar-collections-menu li {
+    padding: 0.2rem 0 0 0.4rem;
+}
+
 .navbar-collections-menu button {
     background: none;
     border: none;
     box-shadow: none;
     cursor: pointer;
-    font: 1.5em "Bitter";
+    font-size: 0.7rem;
+    font-family: "Bitter";
     outline: none;
-    padding: 8px 0.75em;
     text-align: start;
+    vertical-align: top;
 }
 
 .navbar-collections-menu li:hover {
     background-color: #B3C8CF;
 }
 
+/* Gallery Component Styling */
+.gallery-container {
+    height: 100%;
+}
+
+.gallery-collection-header {
+    padding: 0 5%;
+}
+
+.gallery-collection-header h3 {
+    font: 400 0.8rem "Bitter";
+    padding: 0.4rem;
+}
+
+.gallery-navigator {
+    display: flex;
+    flex-direction: row;
+    height: 90%;
+}
+
+.gallery-button-container {
+    align-content: center;
+    margin-bottom: 30%;
+}
+
+.gallery-navigator button {
+    background: none;
+    border: 0.1rem solid #28282B;
+    border-radius: 10px;
+    box-shadow: none;
+    color: #28282B;
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin: 0.25rem;
+    outline: none;
+    padding: 0 0.3rem;
+}
+
+.gallery-frame {
+    flex-grow: 1;
+}
+
+/* Navbar Media Queries */
 @media (min-width: 768px) {
     nav {
         flex-direction: row;
-        white-space: nowrap;
+    }
+
+    .navbar-brand {
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 0.5rem;
+    }
+
+    .hover-underline::before {
+        bottom: 5px;
+        height: 2px; 
+    }
+
+    .navbar-collections {
+        width: 55%;
+    }
+
+    .navbar-collections-header {
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 0.5rem;
+    }
+
+    .navbar-collections-menu li {
+        padding: 0.4rem 0 0.4rem 0.6rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+}
+
+/* Gallery Media Queries */
+@media (min-width: 768px) {
+    .gallery-collection-header {
+        margin-left: 45%;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .gallery-collection-header h3 {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    
+    .gallery-button-container {
+        margin-bottom: 10%;
+    }
+    
+    .gallery-navigator button {
+        border-width: 0.15rem;
+        font-size: 2rem;
+        margin: 0.5rem;
+        padding: 0.05rem 0.35rem;
     }
 }
