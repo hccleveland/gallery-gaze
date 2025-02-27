@@ -34,21 +34,35 @@ export default function Gallery() {
     };
 
     return (
-        <>
-            <div>
+        <div className="gallery-container">
+            <div className="gallery-collection-header">
                 {collection.objectIDs.length > 0 && (
                     <h3>{`${collectionCurrentText} - ${collectionTotalText}`}</h3>
                 )}
             </div>
-            <div>
-                {collection.objectIDs.length > 0 && (
-                    <button onClick={handleBackwardsClick}>{"<"}</button>
-                )}
-                <div></div>
-                {collection.objectIDs.length > 0 && (
-                    <button onClick={handleForwardClick}>{">"}</button>
-                )}
+            <div className="gallery-navigator">
+                <div className="gallery-button-container">
+                    {collection.objectIDs.length > 0 && (
+                        <button
+                            onClick={handleBackwardsClick}
+                            className="gallery-backwards-button"
+                        >
+                            &#10502;
+                        </button>
+                    )}
+                </div>
+                <div className="gallery-frame"></div>
+                <div className="gallery-button-container">
+                    {collection.objectIDs.length > 0 && (
+                        <button
+                            onClick={handleForwardClick}
+                            className="gallery-forward-button"
+                        >
+                            &#10503;
+                        </button>
+                    )}
+                </div>
             </div>
-        </>
+        </div>
     );
 }
