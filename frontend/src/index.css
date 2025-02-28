@@ -158,7 +158,24 @@ nav {
 }
 
 .gallery-frame {
+    display: flex;
+    flex-direction: row;
     flex-grow: 1;
+}
+
+.description-main-container {
+    width: 35%;
+}
+
+/* Image Component Styling */
+.image-main-container {
+    width: 65%;
+}
+
+.image-main-container img {
+    height: 80%;
+    object-fit: contain;
+    width: 100%;
 }
 
 /* Navbar Media Queries */

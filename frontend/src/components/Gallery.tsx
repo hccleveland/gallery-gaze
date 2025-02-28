@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/typedHooks";
 import { fetchObjectFromCollection } from "../store/objectSlice";
 import { collectionActions } from "../store/collectionSlice";
+import Image from "./Image";
 
 export default function Gallery() {
     const dispatch = useAppDispatch();
@@ -51,7 +52,10 @@ export default function Gallery() {
                         </button>
                     )}
                 </div>
-                <div className="gallery-frame"></div>
+                <div className="gallery-frame">
+                    <Image />
+                    <div className="description-main-container"></div>
+                </div>
                 <div className="gallery-button-container">
                     {collection.objectIDs.length > 0 && (
                         <button
