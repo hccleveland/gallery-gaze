@@ -24,7 +24,7 @@ export default function Image() {
                 <img src={imageSrc} alt="Main Image" />
             </div>
         ) : (
-            <div className="image-main-container">
+            <div className="image-main-container missing-image">
                 <img src={imageSrc} alt="No Image Available" />
                 <p>No Image Available</p>
             </div>
