@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../store/typedHooks";
 import { fetchObjectFromCollection } from "../store/objectSlice";
 import { collectionActions } from "../store/collectionSlice";
 import Image from "./Image";
+import Label from "./Label";
 
 export default function Gallery() {
     const dispatch = useAppDispatch();
@@ -54,7 +55,7 @@ export default function Gallery() {
                 </div>
                 <div className="gallery-frame">
                     <Image />
-                    <div className="description-main-container"></div>
+                    <Label />
                 </div>
                 <div className="gallery-button-container">
                     {collection.objectIDs.length > 0 && (

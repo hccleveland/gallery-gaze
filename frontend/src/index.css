@@ -165,12 +165,19 @@ nav {
 }
 
 .missing-image p {
+    font: 600 1.25rem "Playfair+Display";
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    font: 600 1.25rem "Playfair+Display";
     white-space: nowrap;
+}
+
+/* Label Component Styling */
+.label-main-container {
+    background-image: url("../paper-texture.jpg");
+    background-size: cover;
+    padding: 1.5rem;
 }
 
 @media (min-width: 576px) {
@@ -240,14 +247,14 @@ nav {
 
     /* Image Media Queries */
     .image-main-container {
-        width: 65%;
+        width: 60%;
     }
 
     .missing-image p {
         font-size: 2.25rem;
     }
 
-    .description-main-container {
-        width: 35%;
+    .label-main-container {
+        width: 30%;
     }
 }

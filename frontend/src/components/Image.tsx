@@ -16,8 +16,6 @@ export default function Image() {
         setImageSrc(usableImgSrc);
     }, [objectData]);
 
-    console.log(objectData);
-
     if (objectData) {
         return imageSrc !== "../default-image.png" ? (
             <div className="image-main-container">
