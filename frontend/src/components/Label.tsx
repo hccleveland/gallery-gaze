@@ -4,9 +4,11 @@ export default function Label() {
     const { objectData } = useAppSelector((state) => state.object);
 
     if (objectData) {
+        const objectIdString = objectData.objectID.toString();
+
         return (
             <div className="label-main-container">
-                <span>{objectData.objectID}</span>
+                <p className="label-objectID">{`Digital ID: ${objectIdString}`}</p>
                 <div className="label-artist-container">
                     {objectData.artistDisplayName && (
                         <h4>{objectData.artistDisplayName}</h4>

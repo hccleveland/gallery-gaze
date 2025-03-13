@@ -92,8 +92,8 @@ nav {
     border: none;
     box-shadow: none;
     cursor: pointer;
-    font-size: 0.7rem;
     font-family: "Bitter";
+    font-size: 0.7rem;
     outline: none;
     text-align: start;
     vertical-align: top;
@@ -116,12 +116,12 @@ nav {
 .gallery-navigator {
     display: flex;
     flex-direction: row;
-    height: 86vh;
+    margin-top: 0.5rem;
 }
 
 .gallery-button-container {
     align-content: center;
-    margin-bottom: 10%;
+    height: 25vh;
 }
 
 .gallery-navigator button {
@@ -141,21 +141,19 @@ nav {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    justify-content: space-evenly;
-    margin: auto 0;
-    padding: 0.5rem 0.5rem 10% 0.5rem;
 }
 
 /* Image Component Styling */
 .image-main-container {
-    padding: 1.5rem;
     background-color: #fff;
+    margin: auto;
     max-height: fit-content;
     max-width: fit-content;
+    padding: 0.7rem;
 }
 
 .image-main-container img {
-    max-height: 70vh;
+    max-height: 45vh;
     max-width: 100%;
     object-fit: contain;
 }
@@ -177,7 +175,58 @@ nav {
 .label-main-container {
     background-image: url("../paper-texture.jpg");
     background-size: cover;
-    padding: 1.5rem;
+    font-family: "Bitter";
+    margin-top: 1.5rem;
+    max-height: fit-content;
+    padding: 0.7rem;
+}
+
+.label-objectID {
+    font: 400 0.8rem "Bitter";
+    justify-self: right;
+}
+
+.label-artist-container {
+    margin-top: 0.5rem;
+}
+
+.label-artist-container h4 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.label-artist-container p {
+    font-size: 0.85rem;
+    margin-top: 0.1rem;
+}
+
+.label-title-container {
+    margin-top: 1rem;
+}
+
+.label-title-container h3 {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.label-title-container p {
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+
+.label-detail-container {
+    margin-top: 1rem;
+}
+
+.label-detail-container h5 {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.label-detail-container p {
+    font-size: 0.7rem;
+    margin-top: 0.05rem;
 }
 
 @media (min-width: 576px) {
@@ -247,7 +296,7 @@ nav {
 
     /* Image Media Queries */
     .image-main-container {
-        width: 60%;
+        width: 55%;
     }
 
     .missing-image p {
@@ -255,6 +304,6 @@ nav {
     }
 
     .label-main-container {
-        width: 30%;
+        width: 35%;
     }
 }
