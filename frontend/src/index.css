@@ -146,8 +146,8 @@ nav {
 
 /* Image Component Styling */
 .image-spacing-container {
-    height: 40vh;
     display: flex;
+    height: 40vh;
     justify-content: space-around;
 }
 
@@ -466,5 +466,225 @@ nav {
     .label-detail-container p {
         font-size: 1.1rem;
         margin-top: 0.15rem;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Navbar Component */
+    .navbar-brand {
+        font-size: 2.5rem;
+        padding: 0.6rem;
+    }
+
+    .navbar-collections-header {
+        font-size: 2.1rem;
+        padding: 0.6rem;
+    }
+
+    .navbar-collections-menu li {
+        padding: 0.5rem 0 0.5rem 0.7rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 1.5rem;
+    }
+
+    /* Gallery Component */
+    .gallery-collection-header h3 {
+        font-size: 1.6rem;
+        padding: 0.6rem;
+    }
+
+    .gallery-navigator {
+        margin-top: 1rem;
+    }
+
+    .gallery-button-container {
+        height: 50vh;
+    }
+    
+    .gallery-navigator button {
+        border-width: 0.2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0.6rem;
+        padding: 0.1rem 0.5rem;
+    }
+
+    .gallery-frame {
+        padding: 0 1rem;
+    }
+
+    /* Image Component */
+    .image-spacing-container {
+        height: 50vh;
+    }
+
+    .image-main-container {
+        padding: 1.2rem;
+    }
+
+    .image-main-container img { 
+        max-height: 46vh;
+    }
+    
+    .missing-image p {
+        font-size: 4rem;
+        font-weight: 700;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .label-objectID {
+        font-size: 1.6rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 1.4rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 2rem;
+    }
+    
+    .label-artist-container p {
+        font-size: 1.5rem;
+        margin-top: 0.3rem;
+    }
+    
+    .label-title-container {
+        margin-top: 2rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 2.5rem;
+    }
+    
+    .label-title-container p {
+        font-size: 1.5rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 1.8rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 1.6rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 1.4rem;
+        margin-top: 0.2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Navbar Component */
+    .navbar-brand {
+        font-size: 3rem;
+        padding: 0.7rem;
+    }
+
+    .navbar-collections {
+        width: 60%;
+    }
+
+    .navbar-collections-header {
+        font-size: 2.6rem;
+        padding: 0.7rem;
+    }
+
+    .navbar-collections-menu li {
+        padding: 0.6rem 0 0.6rem 0.8rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 2rem;
+    }
+
+    /* Gallery Component */
+    .gallery-collection-header {
+        margin-left: 41.5%;
+    }
+
+    .gallery-collection-header h3 {
+        font-size: 1.9rem;
+        padding: 0.7rem;
+    }
+
+    .gallery-navigator {
+        margin-top: 1.5rem;
+    }
+    
+    .gallery-navigator button {
+        font-size: 3rem;
+        margin: 0.7rem;
+        padding: 0.1rem 0.6rem 0.2rem 0.6rem;
+    }
+
+    .gallery-frame {
+        padding: 0 1.5rem;
+    }
+
+    /* Image Component */
+    .image-main-container {
+        padding: 1.4rem;
+    }
+    
+    .missing-image p {
+        font-size: 4.7rem;
+        font-weight: 800;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin-top: 2rem;
+        padding: 2rem;
+    }
+    
+    .label-objectID {
+        font-size: 1.9rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 1.9rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 2.5rem;
+    }
+    
+    .label-artist-container p {
+        font-size: 2rem;
+        margin-top: 0.4rem;
+    }
+    
+    .label-title-container {
+        margin-top: 2.5rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 2.8rem;
+    }
+    
+    .label-title-container p {
+        font-size: 2rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 2.3rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 2.1rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 1.7rem;
+        margin-top: 0.3rem;
     }
 }
