@@ -18,13 +18,17 @@ export default function Image() {
 
     if (objectData) {
         return imageSrc !== "../default-image.png" ? (
-            <div className="image-main-container">
-                <img src={imageSrc} alt="Main Image" />
+            <div className="image-spacing-container">
+                <div className="image-main-container">
+                    <img src={imageSrc} alt="Main Image" />
+                </div>
             </div>
         ) : (
-            <div className="image-main-container missing-image">
-                <img src={imageSrc} alt="No Image Available" />
-                <p>No Image Available</p>
+            <div className="image-spacing-container">
+                <div className="image-main-container missing-image">
+                    <img src={imageSrc} alt="No Image Available" />
+                    <p>No Image Available</p>
+                </div>
             </div>
         );
     }
