@@ -688,3 +688,92 @@ nav {
         margin-top: 0.3rem;
     }
 }
+
+@media (min-width: 1400px) {
+    /* Navbar Component */
+    .navbar-collections-menu li {
+        padding: 0.4rem 0 0.4rem 0.8rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 1.8rem;
+    }
+    
+    /* Gallery Component */
+    .gallery-button-container {
+        height: 80vh;
+    }
+
+    .gallery-frame {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+
+    /* Image Component */
+    .image-spacing-container {
+        height: 80vh;
+        width: 50%;
+    }
+    
+    .image-main-container {
+        padding: 1.6rem;
+    }
+
+    .image-main-container img {
+        max-height: 75vh;
+    }
+    
+    .missing-image p {
+        font-size: 3rem;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin: auto 0;
+        padding: 1.6rem;
+        width: 40%;
+    }
+    
+    .label-objectID {
+        font-size: 1.5rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 1.5rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 2.1rem;
+    }
+    
+    .label-artist-container p {
+        font-size: 1.6rem;
+        margin-top: 0.3rem;
+    }
+    
+    .label-title-container {
+        margin-top: 2rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 2.4rem;
+    }
+    
+    .label-title-container p {
+        font-size: 1.6rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 1.9rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 1.5rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 1.3rem;
+        margin-top: 0.2rem;
+    }
+}
