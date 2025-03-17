@@ -4,6 +4,7 @@ import { fetchObjectFromCollection } from "../store/objectSlice";
 import { collectionActions } from "../store/collectionSlice";
 import Image from "./Image";
 import Label from "./Label";
+import Introduction from "./Introduction";
 
 export default function Gallery() {
     const dispatch = useAppDispatch();
@@ -55,7 +56,11 @@ export default function Gallery() {
                 </div>
                 <div className="gallery-frame">
                     <Image />
-                    <Label />
+                    {collection.objectIDs.length > 0 ? (
+                        <Label />
+                    ) : (
+                        <Introduction />
+                    )}
                 </div>
                 <div className="gallery-button-container">
                     {collection.objectIDs.length > 0 && (
