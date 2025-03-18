@@ -21,11 +21,14 @@ export default function Image() {
             <div className="image-spacing-container">
                 <div className="image-main-container">
                     <img
+                        className="landing-image"
                         src="https://images.metmuseum.org/CRDImages/ep/original/DT1418.jpg"
                         alt="Ancient Rome (Gallery Gaze Landing Image)"
                     />
-                    <div>
-                        <p>Ancient Rome - Giovanni Paolo Panini - 1757</p>
+                    <div className="image-credit-text">
+                        <p className="image-credit-title">
+                            Ancient Rome - Giovanni Paolo Panini - 1757
+                        </p>
                         <p>
                             "The Metropolitan Museum of Art, New York, Gwynne
                             Andrews Fund, 1952"
