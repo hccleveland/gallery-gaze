@@ -45,6 +45,7 @@ export default function Navbar() {
     }, []);
 
     const handleDepartmentSelection = (departId: number) => {
+        dispatch(collectionActions.resetCurrentIndex());
         const departIDString = departId.toString();
         const fetchCollectionParam = { departmentId: departIDString };
         if (collection.status === "idle" || collection.status === "succeeded") {

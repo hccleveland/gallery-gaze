@@ -31,6 +31,9 @@ export const collectionSlice = createSlice({
         resetCollection() {
             return initialState;
         },
+        resetCurrentIndex(state) {
+            state.currentIndex = 0;
+        },
         moveNextIndex(state) {
             state.currentIndex =
                 state.currentIndex === state.objectIDs.length - 1
