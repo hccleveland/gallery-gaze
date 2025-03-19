@@ -24,15 +24,33 @@ export default function Gallery() {
         }
     }, [collection.objectIDs, collection.currentIndex, dispatch]);
 
-    const handleForwardClick = () => {
+    const handleLinearToggle = () => {
         if (collection.objectIDs.length > 0) {
+            dispatch(collectionActions.setProgressionToggle("linear"));
+        }
+    };
+
+    const handleRandomizedToggle = () => {
+        if (collection.objectIDs.length > 0) {
+            dispatch(collectionActions.setProgressionToggle("randomized"));
+        }
+    };
+
+    const handleForwardClick = () => {
+        if (collection.objectIDs.length > 0 && !collection.moveRandomized) {
             dispatch(collectionActions.moveNextIndex());
+        }
+        if (collection.objectIDs.length > 0 && collection.moveRandomized) {
+            dispatch(collectionActions.moveNextRandomizedIndex());
         }
     };
 
     const handleBackwardsClick = () => {
-        if (collection.objectIDs.length > 0) {
+        if (collection.objectIDs.length > 0 && !collection.moveRandomized) {
             dispatch(collectionActions.movePrevIndex());
+        }
+        if (collection.objectIDs.length > 0 && collection.moveRandomized) {
+            dispatch(collectionActions.movePrevRandomizedIndex());
         }
     };
 
@@ -40,7 +58,15 @@ export default function Gallery() {
         <div className="gallery-container">
             <div className="gallery-collection-header">
                 {collection.objectIDs.length > 0 && (
-                    <h3>{`${collectionCurrentText} - ${collectionTotalText}`}</h3>
+                    <div>
+                        <button onClick={handleLinearToggle}>
+                            Linear Progression
+                        </button>
+                        <button onClick={handleRandomizedToggle}>
+                            Randomized Progression
+                        </button>
+                        <h3>{`${collectionCurrentText} - ${collectionTotalText}`}</h3>
+                    </div>
                 )}
             </div>
             <div className="gallery-navigator">

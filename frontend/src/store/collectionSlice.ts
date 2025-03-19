@@ -6,6 +6,7 @@ export interface CollectionState {
     total: number;
     objectIDs: number[];
     currentIndex: number;
+    moveRandomized: boolean;
     error: string | null;
 }
 
@@ -14,6 +15,7 @@ const initialState: CollectionState = {
     total: 0,
     objectIDs: [],
     currentIndex: 0,
+    moveRandomized: false,
     error: null,
 };
 
@@ -48,6 +50,14 @@ export const collectionSlice = createSlice({
         },
         resetCurrentIndex(state) {
             state.currentIndex = 0;
+        },
+        setProgressionToggle(state, action) {
+            if (action.payload === "randomized") {
+                state.moveRandomized = true;
+            }
+            if (action.payload === "linear") {
+                state.moveRandomized = false;
+            }
         },
         moveNextIndex(state) {
             state.currentIndex =
