@@ -17,6 +17,21 @@ const initialState: CollectionState = {
     error: null,
 };
 
+const randomizeMoveIndex = (arrayTotal: number) => {
+    let pickedNumber = 1;
+    if (arrayTotal < 1000) {
+        const upperRange = Math.round(arrayTotal * 0.025);
+        pickedNumber = Math.floor(Math.random() * upperRange) + 1;
+    } else if (arrayTotal < 10000) {
+        const upperRange = Math.round(arrayTotal * 0.01);
+        pickedNumber = Math.floor(Math.random() * upperRange) + 1;
+    } else {
+        const upperRange = Math.round(arrayTotal * 0.005);
+        pickedNumber = Math.floor(Math.random() * upperRange) + 1;
+    }
+    return pickedNumber;
+};
+
 export const fetchCollectionFromDepartmentID = createAsyncThunk(
     "collection/fetchCollection",
     async (paramObj: { metadataDate?: string; departmentId?: string }) => {
@@ -45,6 +60,31 @@ export const collectionSlice = createSlice({
                 state.currentIndex === 0
                     ? state.objectIDs.length - 1
                     : state.currentIndex - 1;
+        },
+        moveNextRandomizedIndex(state) {
+            const randomizedStep = randomizeMoveIndex(
+                state.objectIDs.length - 1
+            );
+            const newPosition = state.currentIndex + randomizedStep;
+            if (newPosition <= state.objectIDs.length - 1) {
+                state.currentIndex = newPosition;
+            } else {
+                const correctedIndex =
+                    newPosition - (state.objectIDs.length - 1);
+                state.currentIndex = correctedIndex;
+            }
+        },
+        movePrevRandomizedIndex(state) {
+            const randomizedStep = randomizeMoveIndex(
+                state.objectIDs.length - 1
+            );
+            const newPosition = state.currentIndex - randomizedStep;
+            if (newPosition >= 0) {
+                state.currentIndex = newPosition;
+            } else {
+                const correctedStep = randomizedStep - state.currentIndex;
+                state.currentIndex = state.objectIDs.length - 1 - correctedStep;
+            }
         },
     },
     extraReducers: (builder) => {
