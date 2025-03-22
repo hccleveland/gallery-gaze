@@ -1,7 +1,13 @@
+import Navbar from "./components/Navbar";
+import Gallery from "./components/Gallery";
+
 function App() {
     return (
         <>
-            <h1>Gallery Gaze</h1>
+            <Navbar />
+            <main>
+                <Gallery />
+            </main>
         </>
     );
 }

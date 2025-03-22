@@ -3,13 +3,16 @@ import { render, screen } from "@testing-library/react";
 
 import App from "./App";
 
+import { store } from "./store/index.ts";
+import { Provider } from "react-redux";
+
 describe("App", () => {
     it("Renders gallery gaze", () => {
-        render(<App />);
-        expect(
-            screen.getByRole("heading", {
-                level: 1,
-            })
-        ).toHaveTextContent("Gallery Gaze");
+        render(
+            <Provider store={store}>
+                <App />
+            </Provider>
+        );
+        expect(screen.getByRole("button")).toHaveTextContent("Gallery Gaze");
     });
 });

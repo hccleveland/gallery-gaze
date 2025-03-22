@@ -1,0 +1,1031 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f1f0e8;
+}
+
+/* Navbar Component Styling */
+nav {
+    background-color: #e5e1da;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 5%;
+    white-space: wrap;
+    width: 90%;
+}
+
+.navbar-brand {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: #28282B;
+    cursor: pointer;
+    font: italic 600 1.25rem "Playfair+Display";
+    outline: none;
+    padding: 0.3rem;
+    position: relative;
+    width: fit-content;
+}
+
+/* ----- Navbar Brand Hover Effect ----- */
+.hover-underline::before {
+    background-color: #28282B;
+    bottom: 3px;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-out;
+    width: 100%;
+}
+
+.hover-underline:hover::before {
+    transform: scaleX(1);
+}
+/* ----- End Navbar Brand Hover Effect ----- */
+
+.navbar-collections {
+    color: #28282B;
+    font-family: "Bitter";
+    position: relative;
+    width: 100%;
+}
+
+/* Fetch Status + Error Notification */
+.navbar-collections > p {
+    font-size: 1.75rem;
+}
+
+.navbar-collections-header {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.3rem;
+    position: relative;
+}
+
+.navbar-collections-menu {
+    background-color: #e5e1da;
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.navbar-collections-dropdown:hover .navbar-collections-menu { 
+    display: block; 
+}
+
+.navbar-collections-menu li {
+    padding: 0.2rem 0 0 0.4rem;
+}
+
+.navbar-collections-menu button {
+    background: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-family: "Bitter";
+    font-size: 0.7rem;
+    outline: none;
+    text-align: start;
+    vertical-align: top;
+}
+
+.navbar-collections-menu li:hover {
+    background-color: #B3C8CF;
+}
+
+/* Gallery Component Styling */
+.gallery-collection-header {
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem 5% 0 5%;
+    width: 90%;
+}
+
+.gallery-collection-header h3 {
+    flex-grow: 1;
+    font: 400 0.8rem "Bitter";
+    padding: 0.3rem;
+}
+
+.gallery-collection-toggles {
+    margin: auto;
+    padding: 0 0.3rem;
+}
+
+.gallery-collection-header span {
+    font: 0.6rem "Bitter";
+}
+
+.gallery-collection-header button {
+    border-radius: 15px;
+    border-width: 1px;
+    color: #28282B;
+    cursor: pointer;
+    font: 0.5rem "Bitter";
+    margin: auto 0 auto 0.2rem;
+    max-height: fit-content;
+    max-width: fit-content;
+    padding: 0.2rem 0.3rem;
+}
+
+.gallery-collection-header button:hover {
+    background: #cfbab3;
+}
+
+.active-toggle {
+    background: #B3C8CF;
+}
+
+.gallery-navigator {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.3rem;
+}
+
+.gallery-button-container {
+    align-content: center;
+    height: 40vh;
+}
+
+.empty-button-container {
+    min-width: 5%;
+}
+
+.gallery-navigator button {
+    background: none;
+    border: 0.1rem solid #28282B;
+    border-radius: 10px;
+    box-shadow: none;
+    color: #28282B;
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin: 0.25rem;
+    outline: none;
+    padding: 0 0.3rem;
+}
+
+.gallery-frame {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 0.3rem;
+}
+
+/* Image Component Styling */
+.image-spacing-container {
+    display: flex;
+    height: 40vh;
+    justify-content: space-around;
+}
+
+.image-main-container {
+    background-color: #fff;
+    margin: auto;
+    max-height: fit-content;
+    max-width: fit-content;
+    padding: 0.7rem;
+}
+
+.image-main-container img {
+    max-height: 35vh;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.image-main-container .landing-image {
+    display: block;
+    margin: 0 auto;
+    max-height: 30vh;
+}
+
+.missing-image {
+    position: relative;
+}
+
+.missing-image p {
+    font: 600 1.25rem "Playfair+Display";
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.image-credit-text {
+    font: 0.65rem "Playfair+Display";
+    margin-top: 0.3rem;
+}
+
+.image-credit-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Label Component Styling */
+.label-main-container {
+    background-image: url("../paper-texture.jpg");
+    background-size: cover;
+    font-family: "Bitter";
+    margin-top: 0.5rem;
+    max-height: fit-content;
+    padding: 0.7rem;
+}
+
+.label-objectID {
+    font: 400 0.8rem "Bitter";
+    justify-self: right;
+}
+
+.label-artist-container {
+    margin-top: 0.5rem;
+}
+
+.label-artist-container h4 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.label-artist-container p {
+    font-size: 0.85rem;
+    margin-top: 0.1rem;
+}
+
+.label-title-container {
+    margin-top: 1rem;
+}
+
+.label-title-container h3 {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.label-title-container p {
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+
+.label-detail-container {
+    margin-top: 1rem;
+}
+
+.label-detail-container h5 {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.label-detail-container p {
+    font-size: 0.7rem;
+    margin-top: 0.05rem;
+}
+
+/* Introduction Component Styling */
+.intro-title {
+    font-size: 1.2rem;
+}
+
+.intro-title span {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.intro-headline {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0.3rem 0 0.7rem 0;
+}
+
+.intro-explanation {
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+}
+
+.intro-explanation span {
+    font-style: italic;
+    font-weight: 500;
+}
+
+@media (min-width: 576px) {
+    /* Navbar Component */
+    .navbar-brand {
+        font-size: 1.4rem;
+        padding: 0.4rem;
+    }
+
+    .navbar-collections-header {
+        font-size: 1.1rem;
+        padding: 0.4rem;
+    }
+
+    .navbar-collections-menu li {
+        padding: 0.3rem 0 0 0.5rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 0.95rem;
+    }
+
+    /* Gallery Component */
+    .gallery-collection-header h3 {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+
+    .gallery-collection-toggles {
+        padding: 0 0.4rem;
+    }
+
+    .gallery-collection-header span {
+        font-size: 0.8rem;
+    }
+
+    .gallery-collection-header button {
+        font-size: 0.7rem;
+        margin: auto 0 auto 0.4rem;
+    }
+
+    .gallery-navigator {
+        margin-top: 0.4rem;
+    }
+
+    .gallery-navigator button {
+        font-size: 1.5rem;
+        margin: 0.4rem;
+        padding: 0.05rem 0.35rem;
+    }
+
+    .gallery-frame {
+        padding: 0 0.4rem;
+    }
+    
+    /* Image Component */
+    .image-main-container {
+        padding: 0.8rem;
+    }
+    
+    .missing-image p {
+        font-size: 1.75rem;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin-top: 0.75rem;
+        padding: 0.8rem;
+    }
+    
+    .label-objectID {
+        font-size: 0.9rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 0.7rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 1.15rem;
+    }
+    
+    .label-artist-container p {
+        font-size: 1rem;
+        margin-top: 0.15rem;
+    }
+    
+    .label-title-container {
+        margin-top: 1.1rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    
+    .label-title-container p {
+        font-size: 1rem;
+        margin-top: 0.25rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 1rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 0.9rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 0.8rem;
+        margin-top: 0.1rem;
+    }
+
+    /* Introduction Component Styling */
+    .intro-title {
+        font-size: 1.3rem;
+    }
+
+    .intro-headline {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .intro-explanation {
+        font-size: 0.85rem;
+        margin-top: 0.7rem;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Navbar Component */
+    nav {
+        flex-direction: row;
+    }
+
+    .navbar-brand {
+        font-size: 1.75rem;
+        font-weight: 800;
+        padding: 0.5rem;
+    }
+
+    .hover-underline::before {
+        bottom: 5px;
+        height: 2px; 
+    }
+
+    .navbar-collections {
+        margin: auto 0;
+        width: 55%;
+    }
+
+    .navbar-collections-header {
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 0.5rem;
+    }
+
+    .navbar-collections-menu li {
+        padding: 0.4rem 0 0 0.6rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 1.2rem;
+    }
+
+    /* Gallery Component */
+    .gallery-collection-header h3 {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+    }
+
+    .gallery-collection-toggles {
+        padding: 0 0.5rem;
+    }
+
+    .gallery-collection-header span {
+        font-size: 1.1rem;
+    }
+
+    .gallery-collection-header button {
+        border-width: 2px;
+        font-size: 1rem;
+        margin: auto 0 auto 0.5rem;
+    }
+
+    .gallery-navigator {
+        margin-top: 0.5rem;
+    }
+
+    .gallery-button-container {
+        height: 48vh;
+    }
+    
+    .gallery-navigator button {
+        border-width: 0.15rem;
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin: 0.5rem;
+        padding: 0.05rem 0.4rem;
+    }
+
+    .gallery-frame {
+        padding: 0 0.5rem;
+    }
+
+    /* Image Component */
+    .image-spacing-container {
+        height: 48vh;
+    }
+
+    .image-main-container {
+        padding: 1rem;
+    }
+
+    .image-main-container img { 
+        max-height: 42vh;
+    }
+
+    .image-main-container .landing-image {
+        max-height: 37vh;
+    }
+    
+    .missing-image p {
+        font-size: 2.5rem;
+    }
+
+    .image-credit-text {
+        font-size: 0.95rem;
+        margin-top: 0.4rem;
+    }
+    
+    .image-credit-title {
+        font-size: 1rem;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+    
+    .label-objectID {
+        font-size: 1.3rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 0.9rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    
+    .label-artist-container p {
+        font-size: 1.25rem;
+        margin-top: 0.25rem;
+    }
+    
+    .label-title-container {
+        margin-top: 1.5rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 1.7rem;
+    }
+    
+    .label-title-container p {
+        font-size: 1.25rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 1.3rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 1.3rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 1.1rem;
+        margin-top: 0.15rem;
+    }
+
+    /* Introduction Component Styling */
+    .intro-title {
+        font-size: 1.65rem;
+    }
+
+    .intro-headline {
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .intro-explanation {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Navbar Component */
+    .navbar-brand {
+        font-size: 2.5rem;
+        padding: 0.6rem;
+    }
+
+    .navbar-collections-header {
+        font-size: 2.1rem;
+        padding: 0.6rem;
+    }
+
+    .navbar-collections-menu li {
+        padding: 0.5rem 0 0.5rem 0.7rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 1.5rem;
+    }
+
+    /* Gallery Component */
+    .gallery-collection-header h3 {
+        font-size: 1.6rem;
+        padding: 0.6rem;
+    }
+
+    .gallery-collection-toggles {
+        padding: 0 0.6rem;
+    }
+
+    .gallery-collection-header span {
+        font-size: 1.4rem;
+    }
+
+    .gallery-collection-header button {
+        font-size: 1.3rem;
+        margin: auto 0 auto 0.6rem;
+        padding: 0.3rem 0.4rem;
+    }
+
+    .gallery-navigator {
+        margin-top: 1rem;
+    }
+
+    .gallery-button-container {
+        height: 50vh;
+    }
+    
+    .gallery-navigator button {
+        border-width: 0.2rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0.6rem;
+        padding: 0.1rem 0.5rem;
+    }
+
+    .gallery-frame {
+        padding: 0 1rem;
+    }
+
+    /* Image Component */
+    .image-spacing-container {
+        height: 50vh;
+    }
+
+    .image-main-container {
+        padding: 1.2rem;
+    }
+
+    .image-main-container img { 
+        max-height: 46vh;
+    }
+
+    .image-main-container .landing-image {
+        max-height: 41vh;
+    }
+    
+    .missing-image p {
+        font-size: 4rem;
+        font-weight: 700;
+    }
+
+    .image-credit-text {
+        font-size: 1.45rem;
+        margin-top: 0.6rem;
+    }
+    
+    .image-credit-title {
+        font-size: 1.6rem;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .label-objectID {
+        font-size: 1.6rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 1.4rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 2rem;
+    }
+    
+    .label-artist-container p {
+        font-size: 1.5rem;
+        margin-top: 0.3rem;
+    }
+    
+    .label-title-container {
+        margin-top: 2rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 2.5rem;
+    }
+    
+    .label-title-container p {
+        font-size: 1.5rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 1.8rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 1.6rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 1.4rem;
+        margin-top: 0.2rem;
+    }
+
+    /* Introduction Component Styling */
+    .intro-title {
+        font-size: 2.25rem;
+    }
+
+    .intro-headline {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .intro-explanation {
+        font-size: 1.55rem;
+        margin-top: 1.3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Navbar Component */
+    .navbar-brand {
+        font-size: 3rem;
+        padding: 0.7rem;
+    }
+
+    .navbar-collections {
+        width: 60%;
+    }
+
+    .navbar-collections-header {
+        font-size: 2.6rem;
+        padding: 0.7rem;
+    }
+
+    .navbar-collections-menu li {
+        padding: 0.6rem 0 0.6rem 0.8rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 2rem;
+    }
+
+    /* Gallery Component */
+    .gallery-collection-header h3 {
+        font-size: 1.9rem;
+        padding: 0.7rem;
+    }
+
+    .gallery-collection-toggles {
+        padding: 0 0.7rem;
+    }
+
+    .gallery-collection-header span {
+        font-size: 1.7rem;
+    }
+
+    .gallery-collection-header button {
+        font-size: 1.6rem;
+        margin: auto 0 auto 0.7rem;
+    }
+
+    .gallery-navigator {
+        margin-top: 1.5rem;
+    }
+    
+    .gallery-navigator button {
+        font-size: 3rem;
+        margin: 0.7rem;
+        padding: 0.1rem 0.6rem 0.2rem 0.6rem;
+    }
+
+    .gallery-frame {
+        padding: 0 1.5rem;
+    }
+
+    /* Image Component */
+    .image-main-container {
+        padding: 1.4rem;
+    }
+    
+    .missing-image p {
+        font-size: 4.7rem;
+        font-weight: 800;
+    }
+
+    .image-credit-text {
+        font-size: 1.55rem;
+        margin-top: 0.7rem;
+    }
+    
+    .image-credit-title {
+        font-size: 1.7rem;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin-top: 2rem;
+        padding: 2rem;
+    }
+    
+    .label-objectID {
+        font-size: 1.9rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 1.9rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 2.5rem;
+    }
+    
+    .label-artist-container p {
+        font-size: 2rem;
+        margin-top: 0.4rem;
+    }
+    
+    .label-title-container {
+        margin-top: 2.5rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 2.8rem;
+    }
+    
+    .label-title-container p {
+        font-size: 2rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 2.3rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 2.1rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 1.7rem;
+        margin-top: 0.3rem;
+    }
+
+    /* Introduction Component Styling */
+    .intro-title {
+        font-size: 2.4rem;
+    }
+
+    .intro-headline {
+        font-size: 1.9rem;
+        margin-bottom: 2rem;
+    }
+
+    .intro-explanation {
+        font-size: 1.7rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    /* Navbar Component */
+    .navbar-collections-menu li {
+        padding: 0.4rem 0 0.4rem 0.8rem;
+    }
+
+    .navbar-collections-menu button {
+        font-size: 1.8rem;
+    }
+    
+    /* Gallery Component */
+    .gallery-collection-header button {
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .gallery-button-container {
+        height: 80vh;
+    }
+
+    .gallery-frame {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+
+    /* Image Component */
+    .image-spacing-container {
+        height: 80vh;
+        width: 50%;
+    }
+    
+    .image-main-container {
+        padding: 1.6rem;
+    }
+
+    .image-main-container img {
+        max-height: 75vh;
+    }
+
+    .image-main-container .landing-image {
+        max-height: 70vh;
+    }
+    
+    .missing-image p {
+        font-size: 3rem;
+    }
+
+    .image-credit-text {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+    
+    .image-credit-title {
+        font-size: 1.35rem;
+    }
+
+    /* Label Component */
+    .label-main-container {
+        margin: auto 0;
+        padding: 1.6rem;
+        width: 40%;
+    }
+    
+    .label-objectID {
+        font-size: 1.5rem;
+    }
+    
+    .label-artist-container {
+        margin-top: 1.5rem;
+    }
+    
+    .label-artist-container h4 {
+        font-size: 2.1rem;
+    }
+    
+    .label-artist-container p {
+        font-size: 1.6rem;
+        margin-top: 0.3rem;
+    }
+    
+    .label-title-container {
+        margin-top: 2rem;
+    }
+    
+    .label-title-container h3 {
+        font-size: 2.4rem;
+    }
+    
+    .label-title-container p {
+        font-size: 1.6rem;
+    }
+    
+    .label-detail-container {
+        margin-top: 1.9rem;
+    }
+    
+    .label-detail-container h5 {
+        font-size: 1.5rem;
+    }
+    
+    .label-detail-container p {
+        font-size: 1.3rem;
+        margin-top: 0.2rem;
+    }
+
+    /* Introduction Component Styling */
+    .intro-title {
+        font-size: 2rem;
+    }
+
+    .intro-headline {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .intro-explanation {
+        font-size: 1.35rem;
+        margin-top: 1.2rem;
+    }
+}
