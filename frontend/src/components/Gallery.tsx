@@ -56,49 +56,73 @@ export default function Gallery() {
 
     return (
         <div className="gallery-container">
-            <div className="gallery-collection-header">
-                {collection.objectIDs.length > 0 && (
-                    <div>
-                        <button onClick={handleLinearToggle}>
-                            Linear Progression
-                        </button>
-                        <button onClick={handleRandomizedToggle}>
-                            Randomized Progression
-                        </button>
-                        <h3>{`${collectionCurrentText} - ${collectionTotalText}`}</h3>
+            {collection.objectIDs.length === 0 ? (
+                <>
+                    <div className="gallery-navigator">
+                        <div className="gallery-button-container empty-button-container"></div>
+                        <div className="gallery-frame">
+                            <Image />
+                            <Introduction />
+                        </div>
+                        <div className="gallery-button-container empty-button-container"></div>
                     </div>
-                )}
-            </div>
-            <div className="gallery-navigator">
-                <div className="gallery-button-container">
-                    {collection.objectIDs.length > 0 && (
-                        <button
-                            onClick={handleBackwardsClick}
-                            className="gallery-backwards-button"
-                        >
-                            &#10502;
-                        </button>
-                    )}
-                </div>
-                <div className="gallery-frame">
-                    <Image />
-                    {collection.objectIDs.length > 0 ? (
-                        <Label />
-                    ) : (
-                        <Introduction />
-                    )}
-                </div>
-                <div className="gallery-button-container">
-                    {collection.objectIDs.length > 0 && (
-                        <button
-                            onClick={handleForwardClick}
-                            className="gallery-forward-button"
-                        >
-                            &#10503;
-                        </button>
-                    )}
-                </div>
-            </div>
+                </>
+            ) : (
+                <>
+                    <div className="gallery-collection-header">
+                        <h3>{`Viewing ${collectionCurrentText} of ${collectionTotalText}`}</h3>
+                        <div className="gallery-collection-toggles">
+                            <span>Currently Browsing:</span>
+                            {collection.moveRandomized ? (
+                                <button onClick={handleLinearToggle}>
+                                    Ordered
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={handleLinearToggle}
+                                    className="active-toggle"
+                                >
+                                    Ordered
+                                </button>
+                            )}
+                            {collection.moveRandomized ? (
+                                <button
+                                    onClick={handleRandomizedToggle}
+                                    className="active-toggle"
+                                >
+                                    Randomized
+                                </button>
+                            ) : (
+                                <button onClick={handleRandomizedToggle}>
+                                    Randomized
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                    <div className="gallery-navigator">
+                        <div className="gallery-button-container">
+                            <button
+                                onClick={handleBackwardsClick}
+                                className="gallery-backwards-button"
+                            >
+                                &#10502;
+                            </button>
+                        </div>
+                        <div className="gallery-frame">
+                            <Image />
+                            <Label />
+                        </div>
+                        <div className="gallery-button-container">
+                            <button
+                                onClick={handleForwardClick}
+                                className="gallery-forward-button"
+                            >
+                                &#10503;
+                            </button>
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
